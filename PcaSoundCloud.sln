@@ -1,23 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Core", "PcaSoundCloud.Core.csproj", "{1BF3906E-859A-491E-8440-8543C7D5B920}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Core", "PcaSoundCloud.Core/PcaSoundCloud.Core.csproj", "{1BF3906E-859A-491E-8440-8543C7D5B920}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Core.Tests.Unit", "..\PcaSoundCloud.Core.Tests.Unit\PcaSoundCloud.Core.Tests.Unit.csproj", "{31B05330-886B-4102-81BD-660ACF4FE7EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Core.Tests.Unit", "PcaSoundCloud.Core.Tests.Unit\PcaSoundCloud.Core.Tests.Unit.csproj", "{31B05330-886B-4102-81BD-660ACF4FE7EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Shared.Tests.Unit", "..\PcaSoundCloud.Shared.Tests.Unit\PcaSoundCloud.Shared.Tests.Unit.csproj", "{E5E659CD-8BC2-48D7-93EC-4235FB4FF9A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Shared.Tests.Unit", "PcaSoundCloud.Shared.Tests.Unit\PcaSoundCloud.Shared.Tests.Unit.csproj", "{E5E659CD-8BC2-48D7-93EC-4235FB4FF9A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Shared", "..\PcaSoundCloud.Shared\PcaSoundCloud.Shared.csproj", "{057365B5-6A5B-4171-8B23-A3793B117E0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Shared", "PcaSoundCloud.Shared\PcaSoundCloud.Shared.csproj", "{057365B5-6A5B-4171-8B23-A3793B117E0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Web", "..\PcaSoundCloud.Web\PcaSoundCloud.Web.csproj", "{E408AFED-7054-4ABD-AA2A-EEC63DFAC141}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Web", "PcaSoundCloud.Web\PcaSoundCloud.Web.csproj", "{E408AFED-7054-4ABD-AA2A-EEC63DFAC141}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Web.Tests.Functional", "..\PcaSoundCloud.Web.Tests.Functional\PcaSoundCloud.Web.Tests.Functional.csproj", "{C67AA92D-BF62-43A3-A54D-29FFB56BCE24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Web.Tests.Functional", "PcaSoundCloud.Web.Tests.Functional\PcaSoundCloud.Web.Tests.Functional.csproj", "{C67AA92D-BF62-43A3-A54D-29FFB56BCE24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.API", "..\PcaSoundCloud.API\PcaSoundCloud.API.csproj", "{92D99B1B-FD02-4D33-B7DF-7F7B162334B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.API", "PcaSoundCloud.API\PcaSoundCloud.API.csproj", "{92D99B1B-FD02-4D33-B7DF-7F7B162334B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.API.Tests.Unit", "..\PcaSoundCloud.API.Tests.Unit\PcaSoundCloud.API.Tests.Unit.csproj", "{A8B8E111-29FC-42CE-9423-0AE366A34F5D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.API.Tests.Unit", "PcaSoundCloud.API.Tests.Unit\PcaSoundCloud.API.Tests.Unit.csproj", "{A8B8E111-29FC-42CE-9423-0AE366A34F5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.API.Tests.Integration", "..\PcaSoundCloud.API.Tests.Integration\PcaSoundCloud.API.Tests.Integration.csproj", "{CF6C1B43-CEDE-4DEE-872D-9CC2148F5AA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.API.Tests.Integration", "PcaSoundCloud.API.Tests.Integration\PcaSoundCloud.API.Tests.Integration.csproj", "{CF6C1B43-CEDE-4DEE-872D-9CC2148F5AA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
