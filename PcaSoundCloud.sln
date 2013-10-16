@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Core", "PcaSoundCloud.Core/PcaSoundCloud.Core.csproj", "{1BF3906E-859A-491E-8440-8543C7D5B920}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Core", "PcaSoundCloud.Core\PcaSoundCloud.Core.csproj", "{1BF3906E-859A-491E-8440-8543C7D5B920}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.Core.Tests.Unit", "PcaSoundCloud.Core.Tests.Unit\PcaSoundCloud.Core.Tests.Unit.csproj", "{31B05330-886B-4102-81BD-660ACF4FE7EA}"
 EndProject
@@ -18,6 +18,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.API.Tests.Unit", "PcaSoundCloud.API.Tests.Unit\PcaSoundCloud.API.Tests.Unit.csproj", "{A8B8E111-29FC-42CE-9423-0AE366A34F5D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcaSoundCloud.API.Tests.Integration", "PcaSoundCloud.API.Tests.Integration\PcaSoundCloud.API.Tests.Integration.csproj", "{CF6C1B43-CEDE-4DEE-872D-9CC2148F5AA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C578E1A5-C27A-4FE4-AB02-4C00E6C219C2}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
