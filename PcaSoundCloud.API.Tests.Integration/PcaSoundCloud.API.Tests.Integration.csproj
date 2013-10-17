@@ -59,6 +59,10 @@
       <Project>{92D99B1B-FD02-4D33-B7DF-7F7B162334B1}</Project>
       <Name>PcaSoundCloud.API</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PcaSoundCloud.Shared\PcaSoundCloud.Shared.csproj">
+      <Project>{057365B5-6A5B-4171-8B23-A3793B117E0D}</Project>
+      <Name>PcaSoundCloud.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
