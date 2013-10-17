@@ -6,50 +6,50 @@ using System.Threading.Tasks;
 
 namespace PcaSoundCloud.Shared.Entities
 {
-    public class track
+    public class Track
     {
-        public string kind { get; set; }
-        public string id { get; set; }
-        public string createdat { get; set; }
-        public string userid { get; set; }
-        public string duration { get; set; }
-        public string commentable { get; set; }
-        public string state { get; set; }
-        public string originalcontentsize { get; set; }
-        public string sharing { get; set; }
-        public string taglist { get; set; }
-        public string permalink { get; set; }
-        public string streamable { get; set; }
-        public string embeddableby { get; set; }
-        public string downloadable { get; set; }
-        public string purchaseurl { get; set; }
-        public string labelid { get; set; }
-        public string purchasetitle { get; set; }
-        public string genre { get; set; }
-        public string title { get; set; }
-        public string description { get; set; }
-        public string labelname { get; set; }
-        public string release { get; set; }
-        public string tracktype { get; set; }
-        public string keysignature { get; set; }
-        public string isrc { get; set; }
-        public string videourl { get; set; }
-        public string bpm { get; set; }
-        public string releaseyear { get; set; }
-        public string releasemonth { get; set; }
-        public string releaseday { get; set; }
-        public string originalformat { get; set; }
-        public string license { get; set; }
-        public string uri { get; set; }
-        public string user { get; set; }
-        public string permalinkurl { get; set; }
-        public string artworkurl { get; set; }
-        public string waveformurl { get; set; }
-        public string streamurl { get; set; }
-        public string playbackcount { get; set; }
-        public string downloadcount { get; set; }
-        public string favoritingscount { get; set; }
-        public string commentcount { get; set; }
-        public string attachmentsuri { get; set; }
+        public string Kind { get; set; }
+        public string Id { get; set; }
+        public string Createdat { get; set; }
+        public string Userid { get; set; }
+        public string Duration { get; set; }
+        public string Commentable { get; set; }
+        public string State { get; set; }
+        public string Originalcontentsize { get; set; }
+        public string Sharing { get; set; }
+        public string Taglist { get; set; }
+        public string Permalink { get; set; }
+        public string Streamable { get; set; }
+        public string Embeddableby { get; set; }
+        public string Downloadable { get; set; }
+        public string Purchaseurl { get; set; }
+        public string Labelid { get; set; }
+        public string Purchasetitle { get; set; }
+        public string Genre { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Labelname { get; set; }
+        public string Release { get; set; }
+        public string Tracktype { get; set; }
+        public string Keysignature { get; set; }
+        public string Isrc { get; set; }
+        public string Videourl { get; set; }
+        public string Bpm { get; set; }
+        public string Releaseyear { get; set; }
+        public string Releasemonth { get; set; }
+        public string Releaseday { get; set; }
+        public string Originalformat { get; set; }
+        public string License { get; set; }
+        public string Uri { get; set; }
+        public string User { get; set; }
+        public string Permalinkurl { get; set; }
+        public string Artworkurl { get; set; }
+        public string Waveformurl { get; set; }
+        public string Streamurl { get; set; }
+        public string Playbackcount { get; set; }
+        public string Downloadcount { get; set; }
+        public string Favoritingscount { get; set; }
+        public string Commentcount { get; set; }
+        public string Attachmentsuri { get; set; }
     }
 }

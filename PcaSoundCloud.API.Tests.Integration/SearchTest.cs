@@ -59,15 +59,10 @@ namespace PcaSoundCloud.API.Tests.Integration
             request.AddParameter("filter", "all");
             request.AddParameter("limit", "1");
 
-            var response = _client.Execute<track>(request);
+            var response = _client.Execute<Track>(request);
 
             var data = response.Data;
-            Assert.That(data.id, Is.Not.Null);
+            Assert.That(data.Id, Is.Not.Null);
         }
-
-
-        
-
-
     }
 }
