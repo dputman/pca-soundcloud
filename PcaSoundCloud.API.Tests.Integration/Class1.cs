@@ -14,7 +14,7 @@ namespace PcaSoundCloud.API.Tests.Integration
         public void ApiShouldConnect()
         {
             var sut = new NSoundCloud();
-            var actual = sut.Authentication();
+            //var actual = sut.Authentication();
 
 
             //_sut.GetClientId().ShouldReturn("873cc698f936328f3b702353621a5e93");
