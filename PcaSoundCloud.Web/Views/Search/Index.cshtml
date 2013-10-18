@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="Search" ng-controller="searchCtrl">
+    <h2>Search Music</h2>
+    <input type="text" name="search" ng-model="searchString" />
+    <button ng-click="search(searchString)">Search</button>
+</div>
+
+@section scripts
+{
+    <script>
+        angular.module('Search', [])
+            .controller('searchCtrl', ['$scope', '$http', function ($scope, $http) {
+                $scope.searchString = '';
+
+                $scope.search = function(searchString) {
+                    $http.get('/search/searchmusic?searchString=' + searchString).success(function(response) {
+                        console.log(response);
+                    });
+                };
+            }]);
+    </script>
+}
