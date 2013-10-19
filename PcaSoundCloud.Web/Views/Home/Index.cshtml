@@ -2,33 +2,65 @@
     ViewBag.Title = "Bootstrap";
 }
 
-<div class="container marketing">
-    <div class="row">
-
-        <div class="col-lg-4">
-            <img class="img-circle" src="/Content/images/Icon1.png" data-src="holder.js/140x140" alt="140x140" style="width: 140px; height: 140px;">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-default" href="#">View details »</a></p>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Popular</h2>
+        <div class="row">
+            @{int i = 0;}
+            <div class="col-md-4">
+                <ul>
+                    @for (i = 0; i < 2; i++)
+                    {
+                        <li class='musicbox'>song</li>    
+                    }
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    @for (; i < 4; i++)
+                    {
+                        <li class='musicbox'>song</li>    
+                    }
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    @for (; i < 6; i++)
+                    {
+                        <li class='musicbox'>song</li>    
+                    }
+                </ul>
+            </div>
         </div>
-
-        <div class="col-lg-4">
-            <img class="img-circle" src="/Content/images/Icon2.png" data-src="holder.js/140x140" alt="140x140" style="width: 140px; height: 140px;">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-default" href="#">View details »</a></p>
-        </div>
-
-        <div class="col-lg-4">
-            <img class="img-circle" src="/Content/images/Icon3.png" data-src="holder.js/140x140" alt="140x140" style="width: 140px; height: 140px;">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-default" href="#">View details »</a></p>
+    </div>
+    <div class="col-md-6">
+        <h2>Recent</h2>
+        <div class="row">
+            @{int j = 0;}
+            <div class="col-md-4">
+                <ul>
+                    @for (j = 0; j < 2; j++)
+                    {
+                        <li class='musicbox'>song</li>    
+                    }
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    @for (; j < 4; j++)
+                    {
+                        <li class='musicbox'>song</li>    
+                    }
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    @for (; j < 6; j++)
+                    {
+                        <li class='musicbox'>song</li>    
+                    }
+                </ul>
+            </div>
         </div>
     </div>
 </div>
-@section Carousel
-{
-    @Html.Partial("_Carousel")
-}
-

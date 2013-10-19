@@ -35,7 +35,7 @@ namespace PcaSoundCloud.API.Tests.Integration
 
             var response = client.Execute<User>(request);
             Assert.That(response.Data.id, Is.EqualTo(62452880));
-            //response.Data.id.Should().Be(62452880);
+            //response.Data.Id.Should().Be(62452880);
             var content = response.Content; // raw content as string
             Console.WriteLine(content);
 

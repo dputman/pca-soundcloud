@@ -23,7 +23,8 @@ namespace PcaSoundCloud.Web.App_Start
             bundles.Add(new ScriptBundle("~/js")
                             .Include("~/Scripts/jquery-{version}.js")
                             .Include("~/Scripts/jquery-ui-{version}.js")
-                            .Include("~/Scripts/bootstrap.js"));
+                            .Include("~/Scripts/bootstrap.js")
+                            .Include("~/Scripts/angular.js"));
         }
     }
 }
