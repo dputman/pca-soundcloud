@@ -13,8 +13,9 @@ namespace PcaSoundCloud.Web
             XmlConfigurator.Configure();
 
             IocContainer.Windsor = new WindsorContainer()
-              //  .Install(new WebRepositoryInstaller())
-                .Install(new ControllerInstaller());
+                //.Install(new WebRepositoryInstaller())
+                .Install(new ControllerInstaller())
+                .Install(new ServiceInstaller());
                 //.Install(new ApplicationConfigurationInstaller())
             var controllerFactory = new ControllerFactory(IocContainer.Windsor.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);

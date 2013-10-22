@@ -12,8 +12,8 @@ namespace PcaSoundCloud.Web.Injection
             container.Kernel.AddHandlersFilter(new ControllerResolver());
 
             container.Register(Classes.FromThisAssembly()
-                    .BasedOn<Controller>()
-                    .Configure(x => x.LifestylePerWebRequest()));
+                .BasedOn<Controller>()
+                .Configure(x => x.LifestylePerWebRequest()));
         }
     }
 }
