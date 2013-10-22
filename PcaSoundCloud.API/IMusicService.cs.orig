@@ -1,0 +1,16 @@
+﻿using RestSharp;
+
+namespace PcaSoundCloud.API
+{
+    public interface IMusicService
+    {
+<<<<<<< HEAD
+        
+        void SetApiKey(string apiKey);
+        T CallMusicService<T>(RestRequest request) where T : new();
+=======
+        T CallMusicService<T>(RestRequest request);
+        void SetApiKey(string apiKey);
+>>>>>>> 891a8762bbdbe1b3e73a2770b35c72eea90d6d76
+    }
+}
