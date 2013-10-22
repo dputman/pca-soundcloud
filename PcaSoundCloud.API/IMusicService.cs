@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using RestSharp;
+﻿using RestSharp;
 
 namespace PcaSoundCloud.API
 {
     internal interface IMusicService
     {
-        object CallMusicService<T>(RestRequest request);
+        T CallMusicService<T>(RestRequest request);
+        void SetApiKey(string apiKey);
     }
 }
