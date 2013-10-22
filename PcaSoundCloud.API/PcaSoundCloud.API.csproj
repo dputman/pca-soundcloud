@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMusicService.cs" />
-    <Compile Include="NSoundCloud.cs" />
+    <Compile Include="MusicService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
