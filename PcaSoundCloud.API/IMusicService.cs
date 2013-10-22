@@ -2,9 +2,10 @@
 
 namespace PcaSoundCloud.API
 {
-    internal interface IMusicService
+    public interface IMusicService
     {
-        T CallMusicService<T>(RestRequest request);
+        
         void SetApiKey(string apiKey);
+        T CallMusicService<T>(RestRequest request) where T : new();
     }
 }

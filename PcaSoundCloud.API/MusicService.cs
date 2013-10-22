@@ -35,7 +35,7 @@ namespace PcaSoundCloud.API
             return ClientId;
         }
 
-        public T CallMusicService<T>(RestRequest request)
+        public T CallMusicService<T>(RestRequest request) where T : new()
         {
             request.AddParameter("oath_token", TestToken);
             var response = RestClient.Execute<T>(request);

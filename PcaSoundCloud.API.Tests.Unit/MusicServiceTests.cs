@@ -14,14 +14,14 @@ namespace PcaSoundCloud.API.Tests.Unit
     [TestFixture()]
     public class MusicServiceTests
     {
-        private MusicService _nSound;
-        Mock<RestClient> _mock = new Mock<RestClient>();
-        Mock<RestRequest> _moqRequest = new Mock<RestRequest>();
+        //private MusicService _nSound;
+        //Mock<RestClient> _mock = new Mock<RestClient>();
+        //Mock<RestRequest> _moqRequest = new Mock<RestRequest>();
 
         [SetUp]
         public void Init()
         {
-            _nSound = new MusicService(_mock.Object);
+            
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace PcaSoundCloud.API.Tests.Unit
         {
             var service = new MusicService();
             service.SetApiKey("fake key");
-            Track result = service.CallMusicService<Track>(new RestRequest());
+            var result = service.CallMusicService<Track>(new RestRequest());
         }
 
         //[Test]
