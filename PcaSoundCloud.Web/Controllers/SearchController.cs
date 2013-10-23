@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using PcaSoundCloud.Shared;
 
 namespace PcaSoundCloud.Web.Controllers
@@ -23,10 +19,10 @@ namespace PcaSoundCloud.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult searchMusic(string searchString)
+        public ActionResult SearchMusic(string userName)
         {
-            var searchResults = _service.Search(searchString);
-            return Json(new {search = searchString}, JsonRequestBehavior.AllowGet);
+            var results = _service.Search(new TrackCriteria { User = userName });
+            return Json(new { tracks = results }, JsonRequestBehavior.AllowGet);
         }
     }
 }
