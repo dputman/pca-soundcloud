@@ -20,6 +20,7 @@ namespace PcaSoundCloud.API
 
         public MusicService()
         {
+						RestClient = new RestClient();
             RestClient.BaseUrl = ApiUrl;
         }
 
