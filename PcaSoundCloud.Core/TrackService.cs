@@ -8,7 +8,13 @@ namespace PcaSoundCloud.Core
     {
         public IList<Track> Search(TrackCriteria criteria)
         {
-            return new List<Track>();
+            var track = new Track
+                {
+                    Id = "1",
+                    Title = "a track name!",
+                    Description = "It's a description!!"
+                };
+            return new List<Track>{track};
         }
     }
 }
