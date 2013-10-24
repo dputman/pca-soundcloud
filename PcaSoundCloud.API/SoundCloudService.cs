@@ -19,22 +19,23 @@ namespace PcaSoundCloud.API
 	        _music = music;
         }
 
-			public User GetUser(string searchString)
-	    {
-				var request = new RestRequest("users.format", Method.GET);
-				request.AddParameter("consumer_key", "apigee");
-				request.AddParameter("q", searchString);
+        //RETURNS USER BY A SPECIFIED ID
+        public User GetUserByID(int UserID)
+        {
+            var request = new RestRequest("users/" + UserID + ".format", Method.GET);
+            request.AddParameter("consumer_key", "apigee");
 
-		    return _music.CallMusicService<User>(request);
-	    }
+            return _music.CallMusicService<User>(request);
+        }
 
-	    public List<User> GetCollectionOfUsers(string searchString)
-			{
-				var request = new RestRequest("users.format", Method.GET);
-				request.AddParameter("consumer_key", "apigee");
-				request.AddParameter("q", searchString);
+        //RETURNS LIST OF USERS VIA A SEARCH STRING
+        public List<User> GetListOfUsers(string SearchString)
+        {
+            var request = new RestRequest("users.format", Method.GET);
+            request.AddParameter("consumer_key", "apigee");
+            request.AddParameter("q", SearchString);
 
-				return _music.CallMusicService<List<User>>(request);
-	    }
+            return _music.CallMusicService<List<User>>(request);
+        }
     }
 }
