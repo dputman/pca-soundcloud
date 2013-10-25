@@ -1,4 +1,5 @@
 using System.Web.Mvc;
+using PcaSoundCloud.API;
 
 namespace PcaSoundCloud.Web.Controllers
 {
@@ -7,8 +8,11 @@ namespace PcaSoundCloud.Web.Controllers
         //
         // GET: /User/
 
-        public ActionResult Index()
+        public ActionResult Index(string token)
         {
+            SoundCloudService _service = new SoundCloudService(new MusicService());
+            //var user = _service.GetUser();
+            
             return View();
         }
     }
