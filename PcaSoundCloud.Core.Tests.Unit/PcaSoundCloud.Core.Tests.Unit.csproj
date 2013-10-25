@@ -47,10 +47,21 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrackServiceTests.cs" />
     <Compile Include="UserSearchServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PcaSoundCloud.Core\PcaSoundCloud.Core.csproj">
+      <Project>{1BF3906E-859A-491E-8440-8543C7D5B920}</Project>
+      <Name>PcaSoundCloud.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PcaSoundCloud.Shared\PcaSoundCloud.Shared.csproj">
+      <Project>{057365B5-6A5B-4171-8B23-A3793B117E0D}</Project>
+      <Name>PcaSoundCloud.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
