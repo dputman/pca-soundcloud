@@ -5,8 +5,15 @@
 
 <div ng-app="Search" ng-controller="searchCtrl">
     <h2>Search Music</h2>
-    <input type="text" name="search" ng-model="searchString" />
-    <button ng-click="search(searchString)">Search</button>
+    <form action="" method="">
+        <input autofocus type="text" name="search" ng-model="searchString" />
+        <input type="submit" ng-click="search(searchString)" value="Search"></input>
+    </form>
+    
+    <div ng-repeat="track in tracks" style="border: 1px solid black">
+        <h4>{{track.Id}} - {{track.Title}}</h4>
+        <p>{{track.Description}}</p>
+    </div>
 </div>
 
 @section scripts
@@ -15,10 +22,11 @@
         angular.module('Search', [])
             .controller('searchCtrl', ['$scope', '$http', function ($scope, $http) {
                 $scope.searchString = '';
+                $scope.expectedVarName = 'userName';
 
                 $scope.search = function(searchString) {
-                    $http.get('/search/searchmusic?searchString=' + searchString).success(function(response) {
-                        console.log(response);
+                    $http.get('/search/searchmusic?' + $scope.expectedVarName + '=' + searchString).success(function(response) {
+                        $scope.tracks = response.tracks;
                     });
                 };
             }]);
