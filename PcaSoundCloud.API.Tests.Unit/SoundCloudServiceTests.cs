@@ -14,9 +14,6 @@ namespace PcaSoundCloud.API.Tests.Unit
 {
     public class SoundCloudServiceTests
     {
-        //Mock<RestClient> _mock = new Mock<RestClient>();
-        //Mock<RestRequest> _moqRequest = new Mock<RestRequest>();
-
         private Mock<IMusicService> _mockMusicService;
         private SoundCloudService _service;
 
@@ -44,17 +41,6 @@ namespace PcaSoundCloud.API.Tests.Unit
             User user = _service.GetUserByID(111);
             Assert.That(user, Is.TypeOf<User>());
         }
-
-        //[Test]
-        //public void GetUserByIdShouldReturnTheSelectedUser()
-        //{
-        //    User user = new User();
-        //    user.id = 123;
-
-        //    _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns((User)user);
-
-        //    Assert.That(user.id, Is.EqualTo(123));
-        //}
 
         [Test]
         public void GetListOfUsersShouldReturnListOfUsers()
