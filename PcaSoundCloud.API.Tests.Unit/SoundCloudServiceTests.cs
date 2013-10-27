@@ -56,13 +56,13 @@ namespace PcaSoundCloud.API.Tests.Unit
         //    Assert.That(user.id, Is.EqualTo(123));
         //}
 
-        //[Test]
-        //public void GetListOfUsersShouldReturListOfUsers()
-        //{
-        //    _mockMusicService.Setup(sut => sut.CallMusicService<List<User>>(It.IsAny<RestRequest>())).Returns(new List<User>());
+        [Test]
+        public void GetListOfUsersShouldReturnListOfUsers()
+        {
+            _mockMusicService.Setup(sut => sut.CallMusicService<List<User>>(It.IsAny<RestRequest>())).Returns(new List<User>());
 
-        //    List<User> user = service.GetListOfUsers("Jimmy");
-        //    Assert.That(user, Is.TypeOf<List<User>>());
-        //}
+            var user = _service.GetListOfUsers("futurefocus");
+            Assert.That(user, Is.TypeOf<List<User>>());
+        }
     }
 }
