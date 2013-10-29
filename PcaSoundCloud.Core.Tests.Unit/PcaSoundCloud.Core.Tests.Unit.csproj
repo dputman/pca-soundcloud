@@ -11,6 +11,8 @@
     <AssemblyName>PcaSoundCloud.Core.Tests.Unit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,8 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.1.1309.1617\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.3.3\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="Should">
       <HintPath>..\packages\Should.1.1.20\lib\Should.dll</HintPath>
@@ -60,6 +68,20 @@
     </ProjectReference>
     <ProjectReference Include="..\PcaSoundCloud.Shared\PcaSoundCloud.Shared.csproj">
       <Project>{057365B5-6A5B-4171-8B23-A3793B117E0D}</Project>
+      <Name>PcaSoundCloud.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PcaSoundCloud.API\PcaSoundCloud.API.csproj">
+      <Project>{92d99b1b-fd02-4d33-b7df-7f7b162334b1}</Project>
+      <Name>PcaSoundCloud.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PcaSoundCloud.Core\PcaSoundCloud.Core.csproj">
+      <Project>{1bf3906e-859a-491e-8440-8543c7d5b920}</Project>
+      <Name>PcaSoundCloud.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PcaSoundCloud.Shared\PcaSoundCloud.Shared.csproj">
+      <Project>{057365b5-6a5b-4171-8b23-a3793b117e0d}</Project>
       <Name>PcaSoundCloud.Shared</Name>
     </ProjectReference>
   </ItemGroup>

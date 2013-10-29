@@ -9,13 +9,13 @@ namespace PcaSoundCloud.Core.Tests.Unit
 	class UserSearchServiceTest
 	{
 		private UserSearchService _UserSearchService;
-		Mock<NSoundCloud> _mockAPIInterface;
+        Mock<IMusicService> _mockAPIInterface;
 
 
 		[SetUp]
 		public void Setup()
 		{
-			_mockAPIInterface = new Mock<NSoundCloud>();
+			_mockAPIInterface = new Mock<IMusicService>();
 			_UserSearchService = new UserSearchService(_mockAPIInterface.Object);
 		}
 

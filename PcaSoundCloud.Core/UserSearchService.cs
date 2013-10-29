@@ -17,11 +17,11 @@ namespace PcaSoundCloud.Core
 		//private string strUserSearch = "";
 		//private var request = new RestRequest("me.json",Method.GET);
 		//private string strSearchQuery;
-		private NSoundCloud _nSoundCloud;
+		private IMusicService _musicService;
 
-		public UserSearchService(NSoundCloud soundCloud)
+        public UserSearchService(IMusicService musicService)
 		{
-			_nSoundCloud = soundCloud;
+            _musicService = musicService;
 		}
 
 		public User SearchForUsers(string strSearchQuery)
