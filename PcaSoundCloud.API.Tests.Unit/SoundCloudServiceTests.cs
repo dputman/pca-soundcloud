@@ -1,68 +1,54 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Reflection;
 using FluentAssertions;
 using NUnit.Framework;
 using PcaSoundCloud.Shared;
 using RestSharp;
+using Moq;
+using Should;
 
 namespace PcaSoundCloud.API.Tests.Unit
 {
     public class SoundCloudServiceTests
     {
+        private Mock<IMusicService> _mockMusicService;
+        private SoundCloudService _service;
 
-        [Test]
-        public void Return_fake_data_without_calling_soundcloud()
+        [SetUp]
+        public void SetUp()
         {
-            IMusicService music = new MusicService();
-            
-            SoundCloudService service = new SoundCloudService(music);
-
-          
+            _mockMusicService = new Mock<IMusicService>();
+            _service = new SoundCloudService(_mockMusicService.Object);
         }
 
-	    [Test]
-	    public void GetUserShouldNotBeNull()
-	    {
-				IMusicService music = new MusicService();
-				SoundCloudService service = new SoundCloudService(music);
-				//does this need a user name or id...or what?
+        [Test]
+        [ExpectedException(typeof(Exception))]
+        public void IfUserDoesntExistExpectAnException()
+        {
+            _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns((User)null);
 
-		    User user = service.GetUser("Jimmy");
-				Assert.That(user, Is.Not.Null);
-	    }
+            User user = _service.GetUserByID(-1);
+        }
 
-			[Test]
-			public void GetUserShouldBeOfTypeUser()
-			{
-				IMusicService music = new MusicService();
-				SoundCloudService service = new SoundCloudService(music);
-				//does this need a user name or id...or what?
+        [Test]
+        public void GetUserShouldBeOfTypeUser()
+        {
+            _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns(new User());
 
-				User user = service.GetUser("Jimmy");
-				Assert.That(user, Is.TypeOf<User>());
-			}
+            User user = _service.GetUserByID(111);
+            Assert.That(user, Is.TypeOf<User>());
+        }
 
-			[Test]
-			public void GetCollectionOfUsersShouldNotBeNull()
-			{
-				IMusicService music = new MusicService();
-				SoundCloudService service = new SoundCloudService(music);
-				//does this need a user name or id...or what?
+        [Test]
+        public void GetListOfUsersShouldReturnListOfUsers()
+        {
+            _mockMusicService.Setup(sut => sut.CallMusicService<List<User>>(It.IsAny<RestRequest>())).Returns(new List<User>());
 
-				List<User> user = service.GetCollectionOfUsers("Jimmy");
-				Assert.That(user, Is.Not.Null);
-			}
-
-	    [Test]
-	    public void GetCollectionOfUsersShouldReturnCollectionOfUsers()
-			{
-				IMusicService music = new MusicService();
-				SoundCloudService service = new SoundCloudService(music);
-				//does this need a user name or id...or what?
-
-				List<User> user = service.GetCollectionOfUsers("Jimmy");
-				Assert.That(user, Is.TypeOf<List<User>>());
-	    }
+            var user = _service.GetListOfUsers("futurefocus");
+            Assert.That(user, Is.TypeOf<List<User>>());
+        }
     }
 }
