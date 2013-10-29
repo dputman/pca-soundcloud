@@ -1,0 +1,12 @@
+﻿@model IList<PcaSoundCloud.Shared.User>
+
+@{
+    Layout = null;
+}
+
+<div class="row">
+    @foreach (var user in Model)
+    {
+        <p>@user.full_name</p>
+    }
+</div>
