@@ -15,7 +15,8 @@ namespace PcaSoundCloud.Web.App_Start
             bundles.Add(new StyleBundle("~/css")
                             .Include("~/Content/bootstrap.css")
                             .Include("~/Content/carousel.css")
-                            .Include("~/Content/site.css"));
+                            .Include("~/Content/site.css")
+                            .Include("~/Content/searchStyles.css"));
         }
 
         private static void RegisterJavascriptBundles(BundleCollection bundles)

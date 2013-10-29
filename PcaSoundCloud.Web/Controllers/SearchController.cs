@@ -21,7 +21,7 @@ namespace PcaSoundCloud.Web.Controllers
         [HttpGet]
         public ActionResult SearchMusic(string userName)
         {
-            var results = _service.Search(new TrackCriteria { SearchText = userName });
+            var results = _service.Search(new TrackCriteria { SearchText = userName, MaxResults = 5});
             return Json(new { tracks = results }, JsonRequestBehavior.AllowGet);
         }
     }

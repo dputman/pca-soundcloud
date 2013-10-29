@@ -10,8 +10,9 @@
         <input type="submit" ng-click="search(searchString)" value="Search"></input>
     </form>
     
-    <div ng-repeat="track in tracks" style="border: 1px solid black">
-        <h4>{{track.Id}} - {{track.Title}}</h4>
+    <div ng-repeat="track in tracks" class="track">
+        <span>{{track.Id}} - </span>
+        <h4>{{track.Title}}</h4>
         <p>{{track.Description}}</p>
     </div>
 </div>
