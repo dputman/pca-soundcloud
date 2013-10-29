@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using PcaSoundCloud.Shared;
@@ -20,20 +21,25 @@ namespace PcaSoundCloud.API
         }
 
         //RETURNS USER BY A SPECIFIED ID
-        public User GetUserByID(int UserID)
+        public User GetUserByID(int userID)
         {
-            var request = new RestRequest("users/" + UserID + ".format", Method.GET);
+            var request = new RestRequest("users/" + userID + ".format", Method.GET);
             request.AddParameter("consumer_key", "apigee");
+            User SelectedUser = _music.CallMusicService<User>(request);
 
-            return _music.CallMusicService<User>(request);
+            if (SelectedUser == null)
+            {
+                throw new Exception("No User Found For The Specified ID");
+            }
+            return SelectedUser;
         }
 
         //RETURNS LIST OF USERS VIA A SEARCH STRING
-        public List<User> GetListOfUsers(string SearchString)
+        public List<User> GetListOfUsers(string searchString)
         {
             var request = new RestRequest("users.format", Method.GET);
             request.AddParameter("consumer_key", "apigee");
-            request.AddParameter("q", SearchString);
+            request.AddParameter("q", searchString);
 
             return _music.CallMusicService<List<User>>(request);
         }
