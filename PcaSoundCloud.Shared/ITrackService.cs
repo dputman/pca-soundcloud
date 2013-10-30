@@ -10,7 +10,7 @@ namespace PcaSoundCloud.Shared
 
     public class TrackCriteria
     {
-        public string User { get; set; }
+        public string SearchText { get; set; }
         public int MaxResults { get; set; }
     }
 }
