@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript">
+        var token = null;
+
+        // this is the hash parameter name as per http://developers.facebook.com/docs/reference/dialogs/oauth/
+
+        /*var parameter_name = 'access_token='
+
+        if (location.hash.indexOf(parameter_name) {
+
+            // we have a token
+
+            // start by filtering the token
+
+            token = location.hash.substring(location.hash.indexOf(parameter_name)+parameter_name.length);
+
+            // cut extra parameters (eg: expire time, etc)
+
+            if (token.indexOf('&') >= 0) token = token.substring(0, token.indexOf('&'));
+
+            // redirect to page providing token as GET parameter
+
+            //location.href = "/eSpaceName/RegisterToken?authtoken=" + token;
+
+        } else {
+
+            // do some error handling here*/
+        var response = window.location.href;
+        response = response.replace('auth/complete', 'user/index');
+        location.href = response.replace('#', '');
+        
+    </script>
+    <title>Complete</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+</body>
+</html>

@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Text;
+using System.Web;
 using System.Web.Mvc;
 using Castle.MicroKernel.SubSystems.Conversion;
 
@@ -35,10 +36,12 @@ namespace PcaSoundCloud.Web.Controllers
 
         public ActionResult Complete()
         {
-            
-            //string test = Request.QueryString["scope"];
-            //return Content(access_token);
-            return Content(Request.QueryString["test"]);
+            return View();
+        }
+
+        public ActionResult CompleteRedirect(string access_token, string scope)
+        {
+            return Content(access_token + ' ' + scope);
         }
     }
 }

@@ -1,4 +1,6 @@
 using System.Web.Mvc;
+using System.Web.Security;
+using System.Web.UI.WebControls;
 using PcaSoundCloud.API;
 
 namespace PcaSoundCloud.Web.Controllers
@@ -8,12 +10,13 @@ namespace PcaSoundCloud.Web.Controllers
         //
         // GET: /User/
 
-        public ActionResult Index(string token)
+        public ActionResult Index(string accessToken, string scope)
         {
-            SoundCloudService _service = new SoundCloudService(new MusicService());
-            //var user = _service.GetUser();
+            this.HttpContext.Session.Add("token", accessToken);
+            var _service = new SoundCloudService(new MusicService());
+            var me = _service.GetUserByAccessToken(accessToken);
             
-            return View();
+            return View(me);
         }
     }
 }
