@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PcaSoundCloud.Core;
+using PcaSoundCloud.Core.Interfaces;
 using PcaSoundCloud.Shared;
 
 namespace PcaSoundCloud.Web.Controllers

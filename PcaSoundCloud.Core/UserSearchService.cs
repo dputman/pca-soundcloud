@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PcaSoundCloud.API;
+using PcaSoundCloud.Core.Interfaces;
 using PcaSoundCloud.Shared;
 
 namespace PcaSoundCloud.Core

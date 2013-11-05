@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Moq;
 using NUnit.Framework;
 using PcaSoundCloud.Core;
+using PcaSoundCloud.Core.Interfaces;
 using PcaSoundCloud.Shared;
 using PcaSoundCloud.Web.Controllers;
 
