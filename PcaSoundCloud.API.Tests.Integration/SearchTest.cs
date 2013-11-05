@@ -64,5 +64,51 @@ namespace PcaSoundCloud.API.Tests.Integration
             var data = response.Data;
             Assert.That(data.Id, Is.Not.Null);
         }
+
+        [Test]
+        public void CanDeserializeData()
+        {
+            var request = new RestRequest("tracks.format", Method.GET);
+            request.AddParameter("consumer_key", "apigee");
+            request.AddParameter("filter", "all");
+            request.AddParameter("limit", "1");
+
+            var response = _client.Execute<Track>(request);
+
+            var data = response.Data;
+            Assert.That(data.User.Kind, Is.EqualTo("user"));
+            Assert.That(data.User.Permalink, Is.Not.Null);
+            Assert.That(data.User.PermalinkUrl, Is.Not.Null);
+            Assert.That(data.User.AvatarUrl, Is.Not.Null);
+        }
+
+        [Test]
+        public void CanReceiveMultipleTracksBack()
+        {
+            var request = new RestRequest("tracks.format", Method.GET);
+            request.AddParameter("consumer_key", "apigee");
+            request.AddParameter("filter", "all");
+            request.AddParameter("limit", "2");
+
+            var response = _client.Execute<List<Track>>(request);
+
+            var data = response.Data;
+            Assert.That(data.Count, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void CanSearchForSongsByName()
+        {
+            var request = new RestRequest("tracks.format", Method.GET);
+            request.AddParameter("consumer_key", "apigee");
+            request.AddParameter("filter", "all");
+            request.AddParameter("limit", "10");
+            request.AddParameter("q", "04082012");
+
+            var response = _client.Execute<List<Track>>(request);
+
+            var data = response.Data;
+            Assert.That(data.Any(x => x.Title.Contains("04082012")), Is.True);
+        }
     }
 }

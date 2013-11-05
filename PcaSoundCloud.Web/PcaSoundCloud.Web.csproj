@@ -167,6 +167,7 @@
     <Content Include="Content\images\Icon3.png" />
     <Content Include="Content\jasmine\jasmine.css" />
     <Content Include="Content\jasmine\jasmine_favicon.png" />
+    <Content Include="Content\searchStyles.css" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />

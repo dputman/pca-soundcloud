@@ -9,6 +9,7 @@ namespace PcaSoundCloud.Core
     {
         public IList<Track> Search(TrackCriteria criteria)
         {
+<<<<<<< HEAD
             var client = new RestClient("https://api.soundcloud.com/");
             var request = new RestRequest("tracks.format", Method.GET);
             //TODO: Add an AUTH controller
@@ -20,6 +21,15 @@ namespace PcaSoundCloud.Core
             var response = client.Execute<List<Track>>(request);
 
             return response.Data;
+=======
+            var track = new Track
+                {
+                    Id = "1",
+                    Title = "a track name!",
+                    Description = "It's a description!!"
+                };
+            return new List<Track>{track};
+>>>>>>> e934bc4a45eceb094106083b9a3c192a800e8c35
         }
     }
 }

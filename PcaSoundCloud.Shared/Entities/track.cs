@@ -41,7 +41,7 @@ namespace PcaSoundCloud.Shared.Entities
         public string Originalformat { get; set; }
         public string License { get; set; }
         public string Uri { get; set; }
-        public string User { get; set; }
+        public TrackUser User { get; set; }
         public string Permalinkurl { get; set; }
         public string Artworkurl { get; set; }
         public string Waveformurl { get; set; }
@@ -51,5 +51,16 @@ namespace PcaSoundCloud.Shared.Entities
         public string Favoritingscount { get; set; }
         public string Commentcount { get; set; }
         public string Attachmentsuri { get; set; }
+    }
+
+    public class TrackUser
+    {
+        public string Id { get; set; }
+        public string Kind { get; set; }
+        public string Permalink { get; set; }
+        public string Username { get; set; }
+        public string Uri { get; set; }
+        public string PermalinkUrl { get; set; }
+        public string AvatarUrl { get; set; }
     }
 }
