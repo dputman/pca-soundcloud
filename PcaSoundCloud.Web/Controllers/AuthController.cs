@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Text;
+using System.Web;
+using System.Web.Mvc;
 using Castle.MicroKernel.SubSystems.Conversion;
 
 namespace PcaSoundCloud.Web.Controllers
@@ -23,7 +25,7 @@ namespace PcaSoundCloud.Web.Controllers
 
         public ActionResult Connect()
         {
-            const string redirectUrl = "/auth/complete";
+            const string redirectUrl = "http://127.0.0.1:1234/auth/complete";
             var url =
                 string.Format(
                     "https://soundcloud.com/connect?client_id={0}&response_type=token&scope=non-expiring&display=next&redirect_uri={1}", ClientId, redirectUrl);
@@ -34,7 +36,12 @@ namespace PcaSoundCloud.Web.Controllers
 
         public ActionResult Complete()
         {
-            return Content("logged in");
+            return View();
+        }
+
+        public ActionResult CompleteRedirect(string access_token, string scope)
+        {
+            return Content(access_token + ' ' + scope);
         }
     }
 }
