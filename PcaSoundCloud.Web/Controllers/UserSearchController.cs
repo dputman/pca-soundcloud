@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PcaSoundCloud.Core;
 using PcaSoundCloud.Shared;
 
 namespace PcaSoundCloud.Web.Controllers
 {
     public class UserSearchController : Controller
     {
+        private readonly IUserSearchService _service;
+
+        public UserSearchController(IUserSearchService service)
+        {
+            _service = service;
+        }
+
         //
         // GET: /UserSearch/
+      
 
         public ActionResult Index(string searchQuery)
         {
-            var users = new List<User>(){new User{full_name = searchQuery}};
+            var users = _service.GetListOfUsers(searchQuery);
             return View(users);
         }
 

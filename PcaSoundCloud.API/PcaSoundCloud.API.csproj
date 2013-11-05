@@ -45,7 +45,7 @@
     <Compile Include="IMusicService.cs" />
     <Compile Include="MusicService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SoundCloudService.cs" />
+    <Compile Include="UserApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -59,7 +59,7 @@
     <Compile Include="FakeMusicServiceTests.cs" />
     <Compile Include="MusicServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SoundCloudServiceTests.cs" />
+    <Compile Include="UserApiTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

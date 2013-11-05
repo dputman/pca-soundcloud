@@ -1,37 +1,25 @@
-﻿using Castle.MicroKernel;
-using PcaSoundCloud.API;
-using RestSharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using User = PcaSoundCloud.Shared.User;
+using PcaSoundCloud.API;
+using PcaSoundCloud.Shared;
 
 namespace PcaSoundCloud.Core
 {
-	public class UserSearchService
-	{
-	//	NSoundCloud SoundCloudAPI = new NSoundCloud();
-		//private string strUserSearch = "";
-		//private var request = new RestRequest("me.json",Method.GET);
-		//private string strSearchQuery;
-		private IMusicService _musicService;
+    public class UserSearchService : IUserSearchService
+    {
+        private IUserApi _userApi;
+        
+        public UserSearchService(IUserApi userApi)
+        {
+            _userApi = userApi;
+        }
 
-        public UserSearchService(IMusicService musicService)
-		{
-            _musicService = musicService;
-		}
-
-		public User SearchForUsers(string strSearchQuery)
-		{
-			var request = new RestRequest("user.json", Method.GET);
-			//send request to those guys
-
-			//return collection of users
-			return new User();
-		}
-
-	}
+        public List<User> GetListOfUsers(string searchString)
+        {
+            return _userApi.GetListOfUsers(searchString);
+        }
+    }
 }

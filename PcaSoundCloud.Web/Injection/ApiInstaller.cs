@@ -6,14 +6,14 @@ using PcaSoundCloud.Shared;
 
 namespace PcaSoundCloud.Web.Injection
 {
-    public class ServiceInstaller : IWindsorInstaller
+    public class ApiInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<ITrackService>()
+            container.Register(Component.For<IUser>()
                 .ImplementedBy<TrackService>().LifestylePerWebRequest());
             container.Register(Component.For<IUserSearchService>()
                .ImplementedBy<UserSearchService>().LifestylePerWebRequest());
         }
     }
-}
+}git 

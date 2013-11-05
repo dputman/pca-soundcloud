@@ -139,6 +139,7 @@
     <Compile Include="Injection\ControllerFactory.cs" />
     <Compile Include="Injection\ControllerInstaller.cs" />
     <Compile Include="Injection\ControllerResolver.cs" />
+    <Compile Include="Injection\ApiInstaller.cs" />
     <Compile Include="Injection\ServiceInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebBootstrapper.cs" />
