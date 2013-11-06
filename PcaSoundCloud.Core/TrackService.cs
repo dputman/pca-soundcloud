@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PcaSoundCloud.Shared;
 using PcaSoundCloud.Shared.Entities;
 using RestSharp;
@@ -21,5 +22,14 @@ namespace PcaSoundCloud.Core
 
             return response.Data;
         }
+
+	    public IList<Track> GetFavoriteTracksByUserId(int userId)
+	    {
+		    var client = new RestClient(String.Format("https://api.soundcloud.com/users/{0}/", userId));
+				var request = new RestRequest("favorites.format", Method.GET);
+				request.AddParameter("consumer_key", "apigee");
+				var response = client.Execute<List<Track>>(request);
+				return response.Data;
+			}
     }
 }

@@ -62,3 +62,6 @@ _ReSharper*/
 
 #Test files
 *.testsettings
+
+#Merge Files
+*.orig

@@ -30,5 +30,10 @@
         public int private_tracks_count { get; set; }
         public int private_playlists_count { get; set; }
         public bool primary_email_confirmed { get; set; }
+
+        public override string ToString()
+        {
+            return full_name + ": " + id;
+        }
     }
 }

@@ -525,6 +525,8 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Jasmine\SpecRunner.cshtml" />
+    <Content Include="Views\Auth\Complete.cshtml" />
+    <Content Include="Views\User\Complete.cshtml" />
     <Content Include="Views\UserSearch\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

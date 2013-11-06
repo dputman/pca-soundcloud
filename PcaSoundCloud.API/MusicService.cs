@@ -20,7 +20,7 @@ namespace PcaSoundCloud.API
 
         public MusicService()
         {
-						RestClient = new RestClient();
+			RestClient = new RestClient();
             RestClient.BaseUrl = ApiUrl;
         }
 
@@ -39,6 +39,13 @@ namespace PcaSoundCloud.API
         public T CallMusicService<T>(RestRequest request) where T : new()
         {
             request.AddParameter("oath_token", TestToken);
+            var response = RestClient.Execute<T>(request);
+            return response.Data;
+        }
+
+        public T CallMusicService<T>(RestRequest request, string token) where T : new()
+        {
+            request.AddParameter("oauth_token", token);
             var response = RestClient.Execute<T>(request);
             return response.Data;
         }

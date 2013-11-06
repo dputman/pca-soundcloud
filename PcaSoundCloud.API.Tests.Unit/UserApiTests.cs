@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net;
 using System.Reflection;
 using FluentAssertions;
 using NUnit.Framework;
@@ -49,6 +50,29 @@ namespace PcaSoundCloud.API.Tests.Unit
 
             var user = _service.GetListOfUsers("futurefocus");
             Assert.That(user, Is.TypeOf<List<User>>());
+        }
+
+        [Test]
+        public void GetListOfUsersYouAreFollowing()
+        {
+            var users = _service.GetListOfFollowedUsers(62262046);
+
+            Assert.That(users, Is.TypeOf<List<User>>());
+        }
+
+        [Test]
+        public void GetListOfUsersIAmFollowing()
+        {
+            var users = _service.GetListOfMyFollowedUsers();
+
+            Assert.That(users, Is.TypeOf<List<User>>());
+        }
+
+        [Test]
+        public void FollowAGivenUser()
+        {
+            var user = _service.FollowUser(123);
+            Assert.That(user, Is.TypeOf<User>());
         }
     }
 }
