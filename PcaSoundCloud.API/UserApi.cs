@@ -24,7 +24,7 @@ namespace PcaSoundCloud.API
 
         public User GetUserById(int userId)
         {
-            var request = new RestRequest("users/" + userId + ".format", Method.GET);
+            var request = new RestRequest("users/" + userId + ".json", Method.GET);
             request.AddParameter("consumer_key", "apigee");
             var selectedUser = _music.CallMusicService<User>(request);
 
@@ -37,7 +37,7 @@ namespace PcaSoundCloud.API
 
         public List<User> GetListOfUsers(string searchString)
         {
-            var request = new RestRequest("users.format", Method.GET);
+            var request = new RestRequest("users.json", Method.GET);
             request.AddParameter("consumer_key", "apigee");
             request.AddParameter("q", searchString);
 

@@ -1,12 +1,31 @@
 ﻿@model IList<PcaSoundCloud.Shared.User>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*<form action="/usersearch/index" method="POST">
+    <input type="text" name="searchQuery" value=""/>
+    <button type="submit">Submit</button>
+</form>*@
 
 <div class="row">
-    @foreach (var user in Model)
+    @using (Html.BeginForm())
     {
-        <p>@user.username</p>
+        <p>
+            @Html.TextBox("SearchQuery")
+        </p>   
+        <p>
+            <button type="submit">Submit</button>
+        </p>
     }
+    <div class="row">
+        @foreach (var user in Model)
+        {
+            <a href="@user.permalink_url">
+                <img src="@user.avatar_url"/>
+                <p>@user.username</p>
+            </a>
+        }
+    </div>
+
 </div>
