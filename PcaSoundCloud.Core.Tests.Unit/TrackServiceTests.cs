@@ -14,12 +14,26 @@ namespace PcaSoundCloud.Core.Tests.Unit
         [Test]
         public void CanUseSearchService()
         {
-            TrackService trackService = new TrackService();
-
+            var trackService = new TrackService();
             var tracks = trackService.Search(new TrackCriteria{SearchText = "stuff", MaxResults = 5});
-
             Assert.That(tracks.Count, Is.EqualTo(5));
         }
+
+	    [Test]
+	    public void CanSearchByUserNameForFavoriteTracks()
+	    {
+		    var trackService = new TrackService();
+		    var favorites = trackService.GetFavoriteTracksByUserId(183);
+				Assert.That(favorites.Any());
+	    }
+
+			[Test]
+			public void WhenBadUserNameNoResultsFound()
+			{
+				var trackService = new TrackService();
+				var favorites = trackService.GetFavoriteTracksByUserId(-1);
+				Assert.That(favorites.Count(), Is.EqualTo(0));
+			}
 
     }
 }
