@@ -13,7 +13,7 @@ namespace PcaSoundCloud.Web.Controllers
         public ActionResult Index(string accessToken, string scope)
         {
             this.HttpContext.Session.Add("token", accessToken);
-            var _service = new SoundCloudService(new MusicService());
+            var _service = new UserApi(new MusicService());
             var me = _service.GetUserByAccessToken(accessToken);
             
             return View(me);
