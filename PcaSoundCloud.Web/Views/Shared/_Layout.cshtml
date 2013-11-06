@@ -1,5 +1,6 @@
 ﻿@using System.Web.Optimization
 @using PcaSoundCloud.Web.Helpers
+@model PcaSoundCloud.Shared.User
 <!DOCTYPE html>
 
 <html lang="en">
@@ -14,7 +15,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div>Username</div>
+                    <div>
+                        @{
+                            string name = Model.username ?? "Not signed in...";
+                        }
+                        @name
+                    </div>
                     <a href="#">Upload</a>
                 </div>
                 <div class="col-md-4 pull-right">

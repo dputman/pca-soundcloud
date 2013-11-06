@@ -129,7 +129,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AuthController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\DaveController.cs" />
+=======
+    <Compile Include="Controllers\DefaultController.cs" />
+>>>>>>> 3696c745a5f627a922f49d6bd0c4234270607b3c
     <Compile Include="Controllers\JasmineController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
