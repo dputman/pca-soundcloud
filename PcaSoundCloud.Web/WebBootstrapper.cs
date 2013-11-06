@@ -1,7 +1,9 @@
 ﻿using System.Web.Mvc;
 using Castle.Windsor;
 using log4net.Config;
+using PcaSoundCloud.API.Injection;
 using PcaSoundCloud.Core;
+using PcaSoundCloud.Core.Injection;
 using PcaSoundCloud.Web.Injection;
 
 namespace PcaSoundCloud.Web
@@ -12,12 +14,11 @@ namespace PcaSoundCloud.Web
         {
             XmlConfigurator.Configure();
 
-            IocContainer.Windsor = new WindsorContainer()
-                //.Install(new WebRepositoryInstaller())
+            var windsor = new WindsorContainer()
+                .Install(new ApiInstaller())
                 .Install(new ControllerInstaller())
                 .Install(new ServiceInstaller());
-                //.Install(new ApplicationConfigurationInstaller())
-            var controllerFactory = new ControllerFactory(IocContainer.Windsor.Kernel);
+            var controllerFactory = new ControllerFactory(windsor.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
         }
     }

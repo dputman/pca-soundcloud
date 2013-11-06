@@ -132,13 +132,13 @@
     <Compile Include="Controllers\JasmineController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\UserSearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Injection\ControllerFactory.cs" />
     <Compile Include="Injection\ControllerInstaller.cs" />
     <Compile Include="Injection\ControllerResolver.cs" />
-    <Compile Include="Injection\ServiceInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebBootstrapper.cs" />
   </ItemGroup>
@@ -525,6 +525,9 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Jasmine\SpecRunner.cshtml" />
+    <Content Include="Views\Auth\Complete.cshtml" />
+    <Content Include="Views\User\Complete.cshtml" />
+    <Content Include="Views\UserSearch\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -533,6 +536,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PcaSoundCloud.API\PcaSoundCloud.API.csproj">
+      <Project>{92D99B1B-FD02-4D33-B7DF-7F7B162334B1}</Project>
+      <Name>PcaSoundCloud.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PcaSoundCloud.Core\PcaSoundCloud.Core.csproj">
       <Project>{1BF3906E-859A-491E-8440-8543C7D5B920}</Project>
       <Name>PcaSoundCloud.Core</Name>

@@ -11,7 +11,7 @@ using RestSharp;
 
 namespace PcaSoundCloud.API.Tests.Unit
 {
-    [TestFixture()]
+
     public class MusicServiceTests
     {
         //private MusicService _nSound;
@@ -24,12 +24,12 @@ namespace PcaSoundCloud.API.Tests.Unit
             
         }
 
-        [Test]
+//        [Test]
         public void ApiDesign()
         {
-            var service = new MusicService();
-            service.SetApiKey("fake key");
-            var result = service.CallMusicService<Track>(new RestRequest());
+//            var service = new MusicService();
+//            service.SetApiKey("fake key");
+//            var result = service.CallMusicService<Track>(new RestRequest());
         }
 
         //[Test]

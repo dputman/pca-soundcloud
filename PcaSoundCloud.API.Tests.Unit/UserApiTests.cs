@@ -13,16 +13,16 @@ using Should;
 
 namespace PcaSoundCloud.API.Tests.Unit
 {
-    public class SoundCloudServiceTests
+    public class UserApiTests
     {
         private Mock<IMusicService> _mockMusicService;
-        private SoundCloudService _service;
+        private UserApi _service;
 
         [SetUp]
         public void SetUp()
         {
             _mockMusicService = new Mock<IMusicService>();
-            _service = new SoundCloudService(_mockMusicService.Object);
+            _service = new UserApi(_mockMusicService.Object);
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace PcaSoundCloud.API.Tests.Unit
         {
             _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns((User)null);
 
-            User user = _service.GetUserByID(-1);
+            User user = _service.GetUserById(-1);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace PcaSoundCloud.API.Tests.Unit
         {
             _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns(new User());
 
-            User user = _service.GetUserByID(111);
+            User user = _service.GetUserById(111);
             Assert.That(user, Is.TypeOf<User>());
         }
 

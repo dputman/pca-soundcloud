@@ -5,15 +5,32 @@
 
 <div ng-app="Search" ng-controller="searchCtrl">
     <h2>Search Music</h2>
-    <form action="" method="">
-        <input autofocus type="text" name="search" ng-model="searchString" />
-        <input type="submit" ng-click="search(searchString)" value="Search"></input>
-    </form>
     
-    <div ng-repeat="track in tracks" class="track">
-        <span>{{track.Id}} - </span>
-        <h4>{{track.Title}}</h4>
-        <p>{{track.Description}}</p>
+        
+        
+    
+    <form>
+        <div class="input-group">
+            <input autofocus type="text" name="search" ng-model="searchString" class="form-control" />
+            <span class="input-group-btn">
+                <button type="submit" ng-click="search(searchString)" class="btn btn-default">Search</button>
+            </span>
+        </div>
+    </form>
+
+    <div ng-repeat="track in tracks" class="track row">
+        <div class="col-lg-2">
+            <img ng-src="{{track.User.AvatarUrl}}" alt="user url" />
+        </div>
+        <div class="col-lg-10">
+            <a href="{{track.Permalinkurl}}">
+                <h4>{{track.Title}}</h4>
+            </a>
+            <p>
+                {{track.Description}}
+            </p>
+        </div>
+
     </div>
 </div>
 
@@ -25,8 +42,8 @@
                 $scope.searchString = '';
                 $scope.expectedVarName = 'userName';
 
-                $scope.search = function(searchString) {
-                    $http.get('/search/searchmusic?' + $scope.expectedVarName + '=' + searchString).success(function(response) {
+                $scope.search = function (searchString) {
+                    $http.get('/search/searchmusic?' + $scope.expectedVarName + '=' + searchString).success(function (response) {
                         $scope.tracks = response.tracks;
                     });
                 };

@@ -6,6 +6,7 @@ namespace PcaSoundCloud.API
     {
         void SetApiKey(string apiKey);
         T CallMusicService<T>(RestRequest request) where T : new();
+        T CallMusicService<T>(RestRequest request, string accessToken) where T : new();
     }
 
 
@@ -17,6 +18,11 @@ namespace PcaSoundCloud.API
         }
 
         public T CallMusicService<T>(RestRequest request) where T : new()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public T CallMusicService<T>(RestRequest request, string accessToken) where T : new()
         {
             //this would call the API and return data of type T.
             return new T();

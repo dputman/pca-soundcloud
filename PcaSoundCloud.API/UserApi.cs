@@ -8,34 +8,34 @@ using RestSharp;
 
 namespace PcaSoundCloud.API
 {
-    public interface ISoundCloudService
+    public interface IUserApi
     {
+        User GetUserById(int userId);
+        List<User> GetListOfUsers(string searchString);
     }
 
-    public class SoundCloudService : ISoundCloudService
+    public class UserApi : IUserApi
     {
 	    private readonly IMusicService _music;
 
-	    public SoundCloudService(IMusicService music)
+	    public UserApi(IMusicService music)
         {
 	        _music = music;
         }
 
-        //RETURNS USER BY A SPECIFIED ID
-        public User GetUserByID(int userID)
+        public User GetUserById(int userId)
         {
-            var request = new RestRequest("users/" + userID + ".format", Method.GET);
+            var request = new RestRequest("users/" + userId + ".format", Method.GET);
             request.AddParameter("consumer_key", "apigee");
-            User SelectedUser = _music.CallMusicService<User>(request);
+            var selectedUser = _music.CallMusicService<User>(request);
 
-            if (SelectedUser == null)
+            if (selectedUser == null)
             {
                 throw new Exception("No User Found For The Specified ID");
             }
-            return SelectedUser;
+            return selectedUser;
         }
 
-        //RETURNS LIST OF USERS VIA A SEARCH STRING
         public List<User> GetListOfUsers(string searchString)
         {
             var request = new RestRequest("users.format", Method.GET);
@@ -79,6 +79,13 @@ namespace PcaSoundCloud.API
             Console.WriteLine(response.Data.id);
 
             return response.Data;
+        }
+		
+		public User GetUserByAccessToken(string access_token)
+        {
+            var request = new RestRequest("me.json", Method.GET);
+            User selectedUser = _music.CallMusicService<User>(request, access_token);
+            return selectedUser;
         }
     }
 }
