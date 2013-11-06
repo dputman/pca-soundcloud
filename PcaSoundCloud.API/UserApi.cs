@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using PcaSoundCloud.Shared;
 using RestSharp;
@@ -24,7 +25,7 @@ namespace PcaSoundCloud.API
 
         public User GetUserById(int userId)
         {
-            var request = new RestRequest("users/" + userId + ".format", Method.GET);
+            var request = new RestRequest("users/" + userId + ".json", Method.GET);
             request.AddParameter("consumer_key", "apigee");
             var selectedUser = _music.CallMusicService<User>(request);
 
@@ -37,14 +38,50 @@ namespace PcaSoundCloud.API
 
         public List<User> GetListOfUsers(string searchString)
         {
-            var request = new RestRequest("users.format", Method.GET);
+            var request = new RestRequest("users.json", Method.GET);
             request.AddParameter("consumer_key", "apigee");
             request.AddParameter("q", searchString);
 
             return _music.CallMusicService<List<User>>(request);
         }
 
-        public User GetUserByAccessToken(string access_token)
+        //RETURNS LIST OF USERS THAT A USER IS FOLLOWING
+        public List<User> GetListOfFollowedUsers(int userId)
+        {
+            var client = new RestClient("https://api.soundcloud.com/users/" + userId + "/");
+            const string testToken = "b45b1aa10f1ac2941910a7f0d10f8e28";
+            var request = new RestRequest("followings.format", Method.GET);
+            request.AddParameter("client_id", testToken);
+            var response = client.Execute<List<User>>(request);
+
+            return response.Data;
+        }
+
+        public List<User> GetListOfMyFollowedUsers()
+        {
+            var client = new RestClient("https://api.soundcloud.com/me/");
+            var request = new RestRequest("followings.format", Method.GET);
+            const string testToken = "1-55455-62452880-fe694f0d2b2f7fa";
+            request.AddParameter("oauth_token", testToken);
+            var response = client.Execute<List<User>>(request);            
+
+            return response.Data;
+        }
+
+        public User FollowUser(int userId)
+        {
+            var client = new RestClient("https://api.soundcloud.com/me/followings/");
+            var request = new RestRequest(userId + ".format", Method.PUT);
+            const string testToken = "1-55455-62452880-fe694f0d2b2f7fa";
+            request.AddParameter("oauth_token", testToken);           
+            var response = client.Execute<User>(request);
+            Console.WriteLine(response.StatusCode);
+            Console.WriteLine(response.Data.id);
+
+            return response.Data;
+        }
+		
+		public User GetUserByAccessToken(string access_token)
         {
             var request = new RestRequest("me.json", Method.GET);
             User selectedUser = _music.CallMusicService<User>(request, access_token);
