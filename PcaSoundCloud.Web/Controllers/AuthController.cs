@@ -39,9 +39,9 @@ namespace PcaSoundCloud.Web.Controllers
             return View();
         }
 
-        public ActionResult CompleteRedirect(string access_token, string scope)
+        public ActionResult CompleteRedirect(string accessToken, string scope)
         {
-            return Content(access_token + ' ' + scope);
+            return Content(accessToken + ' ' + scope);
         }
     }
 }

@@ -45,7 +45,7 @@ namespace PcaSoundCloud.API
 
         public T CallMusicService<T>(RestRequest request, string token) where T : new()
         {
-            request.AddParameter("oath_token", token);
+            request.AddParameter("oauth_token", token);
             var response = RestClient.Execute<T>(request);
             return response.Data;
         }

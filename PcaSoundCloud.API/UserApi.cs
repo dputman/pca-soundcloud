@@ -44,10 +44,10 @@ namespace PcaSoundCloud.API
             return _music.CallMusicService<List<User>>(request);
         }
 
-        public User GetUserByAccessToken(string accessToken)
+        public User GetUserByAccessToken(string access_token)
         {
-            var request = new RestRequest("me.json", Method.POST);
-            User selectedUser = _music.CallMusicService<User>(request, accessToken);
+            var request = new RestRequest("me.json", Method.GET);
+            User selectedUser = _music.CallMusicService<User>(request, access_token);
             return selectedUser;
         }
     }

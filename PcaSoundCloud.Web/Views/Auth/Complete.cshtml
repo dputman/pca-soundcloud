@@ -36,7 +36,9 @@
             // do some error handling here*/
         var response = window.location.href;
         response = response.replace('auth/complete', 'user/index');
-        location.href = response.replace('#', '');
+        var cleanResponse = response.replace('#', '');
+        location.href = cleanResponse;
+        
         
     </script>
     <title>Complete</title>
