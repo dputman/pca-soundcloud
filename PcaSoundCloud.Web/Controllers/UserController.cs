@@ -5,7 +5,7 @@ using PcaSoundCloud.API;
 
 namespace PcaSoundCloud.Web.Controllers
 {
-    public class UserController : Controller
+    public class UserController : DefaultController
     {
         //
         // GET: /User/
@@ -15,7 +15,7 @@ namespace PcaSoundCloud.Web.Controllers
             this.HttpContext.Session.Add("token", access_token);
             var _service = new UserApi(new MusicService());
             var me = _service.GetUserByAccessToken(access_token);
-            
+            this.HttpContext.Session.Add("username", me.username);
             return View(me);
         }
     }

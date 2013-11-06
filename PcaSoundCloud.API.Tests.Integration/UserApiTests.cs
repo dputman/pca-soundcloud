@@ -10,7 +10,7 @@ namespace PcaSoundCloud.API.Tests.Integration
 {
     class UserApiTests
     {
-        private const string TestToken = "1-55455-62452880-fe694f0d2b2f7fa";
+        private const string TestToken = "1-55455-10183709-1eabe058119cdb4";
         private UserApi _service;
 
         [SetUp]
