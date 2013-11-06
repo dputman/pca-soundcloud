@@ -71,8 +71,10 @@ namespace PcaSoundCloud.API.Tests.Unit
         [Test]
         public void FollowAGivenUser()
         {
-            var user = _service.FollowUser(123);
-            Assert.That(user, Is.TypeOf<User>());
+            Random random = new Random();
+            var userId = random.Next(10000, 99999999);
+            var user = _service.FollowUser(userId);
+            Assert.That(user.id, Is.EqualTo(userId));
         }
     }
 }

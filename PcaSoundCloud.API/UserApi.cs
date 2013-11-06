@@ -75,8 +75,6 @@ namespace PcaSoundCloud.API
             const string testToken = "1-55455-62452880-fe694f0d2b2f7fa";
             request.AddParameter("oauth_token", testToken);           
             var response = client.Execute<User>(request);
-            Console.WriteLine(response.StatusCode);
-            Console.WriteLine(response.Data.id);
 
             return response.Data;
         }
