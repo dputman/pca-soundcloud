@@ -1,0 +1,28 @@
+using System.Web.Mvc;
+using System.Web.Security;
+using System.Web.UI.WebControls;
+using PcaSoundCloud.API;
+
+namespace PcaSoundCloud.Web.Controllers
+{
+    public class UserController : Controller
+    {
+        //
+        // GET: /User/
+
+        public ActionResult Index(string access_token, string scope)
+        {
+<<<<<<< HEAD
+            this.HttpContext.Session.Add("token", access_token);
+            var _service = new UserApi(new MusicService());
+            var me = _service.GetUserByAccessToken(access_token);
+=======
+            this.HttpContext.Session.Add("token", accessToken);
+            var _service = new UserApi(new MusicService());
+            var me = _service.GetUserByAccessToken(accessToken);
+>>>>>>> c411e09657ec55d77df6c98b5a8be3a920a4719d
+            
+            return View(me);
+        }
+    }
+}
