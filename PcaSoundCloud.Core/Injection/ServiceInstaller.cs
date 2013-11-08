@@ -12,8 +12,10 @@ namespace PcaSoundCloud.Core.Injection
         {
             container.Register(Component.For<ITrackService>()
                 .ImplementedBy<TrackService>().LifestylePerWebRequest());
-            container.Register(Component.For<IUserSearchService>()
-               .ImplementedBy<UserSearchService>().LifestylePerWebRequest());
-        }
+						container.Register(Component.For<IUserSearchService>()
+							 .ImplementedBy<UserSearchService>().LifestylePerWebRequest());
+						container.Register(Component.For<IUserService>()
+								.ImplementedBy<UserService>().LifestylePerWebRequest());
+				}
     }
 }

@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="UserService.cs" />
     <Compile Include="Injection\ServiceInstaller.cs" />
     <Compile Include="Interfaces\IUserSearchService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

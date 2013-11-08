@@ -21,7 +21,7 @@
     <div class="row">
         @foreach (var user in Model)
         {
-            <a href="@user.permalink_url">
+            <a href="@Url.Action("Index", "User", new { UserId = user.id })">
                 <img src="@user.avatar_url"/>
                 <p>@user.username</p>
             </a>
