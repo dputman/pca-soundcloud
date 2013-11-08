@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Controllers\DaveControllerTests.cs" />
     <Compile Include="Controllers\SearchControllerTests.cs" />
+    <Compile Include="Controllers\HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserSearchControllerTests.cs" />
   </ItemGroup>
@@ -57,6 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PcaSoundCloud.API\PcaSoundCloud.API.csproj">
+      <Project>{92D99B1B-FD02-4D33-B7DF-7F7B162334B1}</Project>
+      <Name>PcaSoundCloud.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PcaSoundCloud.Core\PcaSoundCloud.Core.csproj">
       <Project>{1bf3906e-859a-491e-8440-8543c7d5b920}</Project>
       <Name>PcaSoundCloud.Core</Name>

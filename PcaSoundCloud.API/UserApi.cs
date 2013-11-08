@@ -12,6 +12,10 @@ namespace PcaSoundCloud.API
     {
         User GetUserById(int userId);
         List<User> GetListOfUsers(string searchString);
+        List<User> GetListOfFollowedUsers(int userId);
+        List<User> GetListOfMyFollowedUsers();
+        User FollowUser(int userId);
+        User GetUserByAccessToken(string access_token);
     }
 
     public class UserApi : IUserApi
