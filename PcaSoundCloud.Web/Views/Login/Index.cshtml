@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Bootstrap";
+}
+
+<div class="row">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Welcome!</h1>
+            <p>Log in to SoundCloud to see your music</p>
+            <p>
+                <a href="@Url.Action("Connect", "Auth")" class="btn btn-lg">
+			<img src="/Content/images/btn-connect-sc-l.png" />
+                </a>
+            </p>
+	    <p><a href="@Url.Action("Index","UserSearch")">User Search</a></p>
+        </div>
+    </div>
+</div>

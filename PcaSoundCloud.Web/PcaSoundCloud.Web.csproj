@@ -132,7 +132,7 @@
     <Compile Include="Controllers\DaveController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\JasmineController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserSearchController.cs" />
     <Compile Include="Global.asax.cs">
@@ -151,7 +151,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -520,16 +520,16 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-2.0.2.min.map" />
     <Content Include="Views\Search\Index.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Jasmine\SpecRunner.cshtml" />
     <Content Include="Views\Auth\Complete.cshtml" />
-    <Content Include="Views\User\Complete.cshtml" />
+    <Content Include="Views\Home\Complete.cshtml" />
     <Content Include="Views\UserSearch\Index.cshtml" />
     <Content Include="Views\Dave\Index.cshtml" />
   </ItemGroup>
