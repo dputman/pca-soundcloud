@@ -1,77 +1,57 @@
 ﻿@{
     ViewBag.Title = "Bootstrap";
 }
-@model PcaSoundCloud.Shared.User
+@model PcaSoundCloud.Web.Controllers.IndexViewModel
 <div class="jumbotron">
-    <h1>Welcome, @Model.full_name</h1>
+    <h1>Welcome, @Model.User.full_name</h1>
 </div>
 
 <div class="row">
-    <div class="row">
-  <div class="col-sm-6 col-md-3">
-    <a href="#" class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-    </a>
-  </div>
-  ...
-</div>
     <div class="col-md-6">
         <h2>Popular</h2>
         <div class="row">
-            <div class="col-md-4">
-                <ul>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <ul>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <ul>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                </ul>
-            </div>
+            @{
+                var index = 0;
+
+                foreach (var track in @Model.Tracks)
+                {
+                    if (index % 4 == 0)
+                    {
+                        @Html.Raw("<div class='col-md-4'>")
+                    } 
+                    
+                    <a href="#" class="thumbnail"><span class="musicbox">@track.Title</span></a>
+
+                    if(index % 4 == 0)
+                    {
+                        @Html.Raw("</div>")
+                    }
+                    index++;
+                }
+            }
         </div>
     </div>
     <div class="col-md-6">
-        
+
         <h2>Recent</h2>
         <div class="row">
             <div class="col-md-4">
-                <ul>
-                    <div> <a href="#" class="thumbnail"><span class="musicbox">song</span></a></div></li>
-                    <div> <a href="#" class="thumbnail"><span class="musicbox">song</span></a></div></li>
-                    <div> <a href="#" class="thumbnail"><span class="musicbox">song</span></a></div></li>
-                    <div> <a href="#" class="thumbnail"><span class="musicbox">song</span></a></div></li>
-     
-                </ul>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
             </div>
             <div class="col-md-4">
-                <ul>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                </ul>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
             </div>
             <div class="col-md-4">
-                <ul>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                    <li class='musicbox'>song</li>
-                </ul>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
+                <a href="#" class="thumbnail"><span class="musicbox">@Model.Tracks[0].Title</span></a>
             </div>
         </div>
     </div>
