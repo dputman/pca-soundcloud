@@ -16,9 +16,10 @@ namespace PcaSoundCloud.Web.Controllers
 
         public ActionResult Index(int userId)
         {
-	        var favorites = new TrackService().GetFavoriteTracksByUserId(userId);
-	        var model = new UserModel {Favorites = favorites};
-            return View(model);
+//	        var favorites = new TrackService().GetFavoriteTracksByUserId(userId);
+//	        var model = new UserModel {Favorites = favorites};
+//            return View(model);
+            return null;
         }
     }
 }

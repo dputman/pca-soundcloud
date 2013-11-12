@@ -3,37 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Moq;
 using NUnit.Framework;
+using PcaSoundCloud.API;
 using PcaSoundCloud.Shared;
 using PcaSoundCloud.Shared.Entities;
 
 namespace PcaSoundCloud.Core.Tests.Unit
 {
-    class TrackServiceTests
+    public class TrackServiceTests
     {
+        private TrackService _trackService;
+        private Mock<ITrackApi> _trackApi;
+
+        [SetUp]
+        public void Setup()
+        {
+            _trackApi = new Mock<ITrackApi>();
+            _trackService = new TrackService(_trackApi.Object);
+        }
+
+        [Test]
+        public void IsAnITrackService()
+        {
+            Assert.That(_trackService, Is.InstanceOf<ITrackService>());
+        }
+
+        
         [Test]
         public void CanUseSearchService()
         {
-            var trackService = new TrackService();
-            var tracks = trackService.Search(new TrackCriteria{SearchText = "stuff", MaxResults = 5});
-            Assert.That(tracks.Count, Is.EqualTo(5));
+            var expect = new List<Track> {new Track()};
+            var criteria = new TrackCriteria {SearchText = "stuff", MaxResults = 5};
+            _trackApi.Setup(mock => mock.Search(criteria)).Returns(expect);
+            var tracks = _trackService.Search(criteria);
+            Assert.That(tracks, Is.EqualTo(expect));
         }
 
 	    [Test]
 	    public void CanSearchByUserNameForFavoriteTracks()
 	    {
-		    var trackService = new TrackService();
-		    var favorites = trackService.GetFavoriteTracksByUserId(183);
-				Assert.That(favorites.Any());
+            var expect = new List<Track> { new Track() };
+            _trackApi.Setup(mock => mock.GetFavoriteTracksByUserId(7)).Returns(expect);
+            var tracks = _trackService.GetFavoriteTracksByUserId(7);
+            Assert.That(tracks, Is.EqualTo(expect));
 	    }
 
-			[Test]
-			public void WhenBadUserNameNoResultsFound()
-			{
-				var trackService = new TrackService();
-				var favorites = trackService.GetFavoriteTracksByUserId(-1);
-				Assert.That(favorites.Count(), Is.EqualTo(0));
-			}
 
     }
 }

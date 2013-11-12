@@ -13,6 +13,8 @@ namespace PcaSoundCloud.API.Injection
                 .ImplementedBy<MusicService>().LifestylePerWebRequest());
             container.Register(Component.For<IUserApi>()
                 .ImplementedBy<UserApi>().LifestylePerWebRequest());
+            container.Register(Component.For<ITrackApi>()
+                .ImplementedBy<TrackApi>().LifestylePerWebRequest());
         }
     }
 }

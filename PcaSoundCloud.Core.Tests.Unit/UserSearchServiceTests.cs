@@ -24,13 +24,10 @@ namespace PcaSoundCloud.Core.Tests.Unit
         }
 
         [Test]
-        public void IfUserDoesntExistExpectAnException()
+        public void IsAnIUserSearchService()
         {
             Assert.That(_service, Is.InstanceOf<IUserSearchService>());
         }
-
-        
-           // _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns((User)null);
 
         [Test]
         public void WhenWeCallGetListOfUsersReturnsListOfUsersWhenRequested()

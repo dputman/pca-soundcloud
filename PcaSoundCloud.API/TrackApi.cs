@@ -3,40 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PcaSoundCloud.API;
 using PcaSoundCloud.Shared;
 using PcaSoundCloud.Shared.Entities;
 using RestSharp;
 
 namespace PcaSoundCloud.API
 {
-	class TrackApi
-	{
-		 private readonly IMusicService _music;
+    public interface ITrackApi
+    {
+        IList<Track> Search(TrackCriteria criteria);
+        IList<Track> GetFavoriteTracksByUserId(int userId);
+    }
 
-	    public TrackApi(IMusicService music)
+
+    public class TrackApi : ITrackApi
+    {
+        private readonly IMusicService _musicService;
+
+        public TrackApi(IMusicService musicService)
         {
-	        _music = music;
+            _musicService = musicService;
         }
 
-		private List<Track>getTracksBySearch(string search)
-		{
-			var request = new RestRequest("tracks.format", Method.GET);
-					request.AddParameter("consumer_key", "apigee");
-					request.AddParameter("q", search);
+        public IList<Track> Search(TrackCriteria criteria)
+        {
+            var request = new RestRequest("tracks.format", Method.GET);
+            request.AddParameter("consumer_key", "apigee");
+            request.AddParameter("filter", "all");
+            request.AddParameter("limit", criteria.MaxResults);
+            request.AddParameter("q", criteria.SearchText);
 
-					return _music.CallMusicService<List<Track>>(request);
-		}
+            var tracks = _musicService.CallMusicService<List<Track>>(request);
 
-		public Track getTrackByID(int trackID)
-		{
-			//https://api.soundcloud.com/tracks/291.json?consumer_key=apigee
-			var request = new RestRequest("tracks/" + trackID.ToString() + ".format", Method.GET);
-			request.AddParameter("consumer_key", "apigee");
-			//request.AddParameter("q", search);
+            return tracks;
+        }
 
-			return _music.CallMusicService<Track>(request);
-		}
+	    public IList<Track> GetFavoriteTracksByUserId(int userId)
+	    {
+				var request = new RestRequest("favorites.format", Method.GET);
+				request.AddParameter("consumer_key", "apigee");
+				var tracks = _musicService.CallMusicService<List<Track>>(request);
+                return tracks;
+			}
 
-	}
-
+    }
 }
+    
