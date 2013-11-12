@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using PcaSoundCloud.Shared;
+﻿using System.Web.Mvc;
 using PcaSoundCloud.Core.Interfaces;
+using PcaSoundCloud.Shared;
 
 namespace PcaSoundCloud.Web.Controllers
 {
@@ -21,8 +17,9 @@ namespace PcaSoundCloud.Web.Controllers
 
         public ActionResult Index(int UserId)
         {
-					var user = _service.GetUserById(UserId);
-					return View(user);
+            var user = _service.GetUserById(UserId);
+            var userModel = new UserIndexViewModel();
+            return View(userModel);
         }
 
         //
