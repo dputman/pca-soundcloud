@@ -1,160 +1,80 @@
+﻿using System;
+using System.Collections.Generic;
+using NUnit.Framework;
+using PcaSoundCloud.Shared;
+using RestSharp;
+using Moq;
+
+namespace PcaSoundCloud.API.Tests.Unit
+{
+    public class UserApiTests
+    {
+        private Mock<IMusicService> _mockMusicService;
+        private UserApi _userApi;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _mockMusicService = new Mock<IMusicService>();
+            _userApi = new UserApi(_mockMusicService.Object);
+        }
+
+        [Test]
+        [ExpectedException(typeof(Exception))]
+        public void IfUserDoesntExistExpectAnException()
+        {
+            _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns((User)null);
+
+            User user = _userApi.GetUserById(-1);
+        }
+
+        [Test]
+        public void GetUserShouldBeOfTypeUser()
+        {
+            _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns(new User());
+
+            User user = _userApi.GetUserById(111);
+            Assert.That(user, Is.TypeOf<User>());
+        }
+
+        [Test]
+        public void GetListOfUsersShouldReturnListOfUsers()
+        {
+            _mockMusicService.Setup(sut => sut.CallMusicService<List<User>>(It.IsAny<RestRequest>())).Returns(new List<User>());
+
+            var user = _userApi.GetListOfUsers("futurefocus");
+            Assert.That(user, Is.TypeOf<List<User>>());
+        }
+
+        [Test]
+        public void GetListOfUsersYouAreFollowing()
+        {
+            var users = _userApi.GetListOfFollowedUsers(62262046);
+            Assert.That(users, Is.TypeOf<List<User>>());
+        }
+
+        [Test]
+        public void GetListOfUsersIAmFollowing()
+        {
+            var users = _userApi.GetListOfMyFollowedUsers();
+
+            Assert.That(users, Is.TypeOf<List<User>>());
+        }
+
+        [Test]
+        public void FollowAGivenUser()
+        {
 <<<<<<< HEAD
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Net;
-using System.Reflection;
-using FluentAssertions;
-using NUnit.Framework;
-using PcaSoundCloud.Shared;
-using RestSharp;
-using Moq;
-using Should;
-
-namespace PcaSoundCloud.API.Tests.Unit
-{
-    public class UserApiTests
-    {
-        private Mock<IMusicService> _mockMusicService;
-        private UserApi _service;
-
-        [SetUp]
-        public void SetUp()
-        {
-            _mockMusicService = new Mock<IMusicService>();
-            _service = new UserApi(_mockMusicService.Object);
-        }
-
-        [Test]
-        [ExpectedException(typeof(Exception))]
-        public void IfUserDoesntExistExpectAnException()
-        {
-            _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns((User)null);
-
-            User user = _service.GetUserById(-1);
-        }
-
-        [Test]
-        public void GetUserShouldBeOfTypeUser()
-        {
-            _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns(new User());
-
-            User user = _service.GetUserById(111);
-            Assert.That(user, Is.TypeOf<User>());
-        }
-
-        [Test]
-        public void GetListOfUsersShouldReturnListOfUsers()
-        {
-            _mockMusicService.Setup(sut => sut.CallMusicService<List<User>>(It.IsAny<RestRequest>())).Returns(new List<User>());
-
-            var user = _service.GetListOfUsers("futurefocus");
-            Assert.That(user, Is.TypeOf<List<User>>());
-        }
-
-        [Test]
-        public void GetListOfUsersYouAreFollowing()
-        {
-            var users = _service.GetListOfFollowedUsers(62262046);
-
-            Assert.That(users, Is.TypeOf<List<User>>());
-        }
-
-        [Test]
-        public void GetListOfUsersIAmFollowing()
-        {
-            var users = _service.GetListOfMyFollowedUsers();
-
-            Assert.That(users, Is.TypeOf<List<User>>());
-        }
-
-        [Test]
-        public void FollowAGivenUser()
-        {
-            var user = _service.FollowUser(123);
-            Assert.That(user, Is.TypeOf<User>());
-        }
-    }
+//            Random random = new Random();
+//            var userId = random.Next(10000, 99999999);
+//            var user = _service.FollowUser(userId);
+//            Assert.That(user.id, Is.EqualTo(userId));
 =======
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Net;
-using System.Reflection;
-using FluentAssertions;
-using NUnit.Framework;
-using PcaSoundCloud.Shared;
-using RestSharp;
-using Moq;
-using Should;
-
-namespace PcaSoundCloud.API.Tests.Unit
-{
-    public class UserApiTests
-    {
-        private Mock<IMusicService> _mockMusicService;
-        private UserApi _service;
-
-        [SetUp]
-        public void SetUp()
-        {
-            _mockMusicService = new Mock<IMusicService>();
-            _service = new UserApi(_mockMusicService.Object);
-        }
-
-        [Test]
-        [ExpectedException(typeof(Exception))]
-        public void IfUserDoesntExistExpectAnException()
-        {
-            _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns((User)null);
-
-            User user = _service.GetUserById(-1);
-        }
-
-        [Test]
-        public void GetUserShouldBeOfTypeUser()
-        {
-            _mockMusicService.Setup(sut => sut.CallMusicService<User>(It.IsAny<RestRequest>())).Returns(new User());
-
-            User user = _service.GetUserById(111);
-            Assert.That(user, Is.TypeOf<User>());
-        }
-
-        [Test]
-        public void GetListOfUsersShouldReturnListOfUsers()
-        {
-            _mockMusicService.Setup(sut => sut.CallMusicService<List<User>>(It.IsAny<RestRequest>())).Returns(new List<User>());
-
-            var user = _service.GetListOfUsers("futurefocus");
-            Assert.That(user, Is.TypeOf<List<User>>());
-        }
-
-        [Test]
-        public void GetListOfUsersYouAreFollowing()
-        {
-            var users = _service.GetListOfFollowedUsers(62262046);
-
-            Assert.That(users, Is.TypeOf<List<User>>());
-        }
-
-        [Test]
-        public void GetListOfUsersIAmFollowing()
-        {
-            var users = _service.GetListOfMyFollowedUsers();
-
-            Assert.That(users, Is.TypeOf<List<User>>());
-        }
-
-        [Test]
-        public void FollowAGivenUser()
-        {
             Random random = new Random();
             var userId = random.Next(10000, 99999999);
-            var user = _service.FollowUser(userId);
+            var user = _userApi.FollowUser(userId);
             Assert.That(user.id, Is.EqualTo(userId));
+>>>>>>> 30823dd0d911391869a4f187a0499d85eb91dbbb
         }
     }
->>>>>>> 8eece9514daf6662414d15096cbefb900094badf
 }
