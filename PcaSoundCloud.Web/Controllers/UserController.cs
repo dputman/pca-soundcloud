@@ -7,18 +7,24 @@ namespace PcaSoundCloud.Web.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _service;
+        private readonly ITrackService _trackService;
 
-        public UserController(IUserService service)
+        public UserController(IUserService service, ITrackService trackService)
         {
             _service = service;
+            _trackService = trackService;
         }
+
         //
         // GET: /User/
 
-        public ActionResult Index(int UserId)
+        public ActionResult Index(int userId)
         {
-            var user = _service.GetUserById(UserId);
-            var userModel = new UserIndexViewModel();
+            var userModel = new UserIndexViewModel
+            {
+                User = _service.GetUserById(userId),
+                Favorites = _trackService.GetFavoriteTracksByUserId(userId)
+            };
             return View(userModel);
         }
 
