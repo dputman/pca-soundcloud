@@ -6,6 +6,7 @@ using System.Web.UI.WebControls;
 using PcaSoundCloud.API;
 using PcaSoundCloud.Shared;
 using PcaSoundCloud.Shared.Entities;
+using Ploeh.AutoFixture;
 
 namespace PcaSoundCloud.Web.Controllers
 {
@@ -25,11 +26,14 @@ namespace PcaSoundCloud.Web.Controllers
         public ActionResult Index(string access_token, string scope)
         {
             this.HttpContext.Session.Add("token", access_token);
-            
-            var me = _userApi.GetUserByAccessToken(access_token);
-            
+            var _service = new UserApi(new MusicService());
+            var me = _service.GetUserByAccessToken(access_token);
             this.HttpContext.Session.Add("username", me.username);
-            return View(me);
+
+            var fixture = new Fixture();
+            var tracks = fixture.CreateMany<Track>(20);
+            var vm = new IndexViewModel {User = me, Tracks = tracks.ToList()};
+            return View(vm);
         }
 
         public List<Track> GetPopularTracks(List<int> userIds)
@@ -41,5 +45,12 @@ namespace PcaSoundCloud.Web.Controllers
             }
             return tracks;
         }
+    }
+
+
+    public class IndexViewModel
+    {
+        public User User { get; set; }
+        public IList<Track> Tracks { get; set; }
     }
 }
