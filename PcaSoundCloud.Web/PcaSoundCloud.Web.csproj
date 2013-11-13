@@ -134,6 +134,7 @@
     <Compile Include="Controllers\JasmineController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\TrackController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserSearchController.cs" />
     <Compile Include="Global.asax.cs">
@@ -534,6 +535,7 @@
     <Content Include="Views\UserSearch\Index.cshtml" />
     <Content Include="Views\Dave\Index.cshtml" />
     <Content Include="Views\User\index.cshtml" />
+    <Content Include="Views\Track\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

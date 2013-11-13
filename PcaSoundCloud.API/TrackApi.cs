@@ -14,6 +14,7 @@ namespace PcaSoundCloud.API
     {
         IList<Track> Search(TrackCriteria criteria);
         IList<Track> GetFavoriteTracksByUserId(int userId);
+        Track GetTrack(int i);
     }
 
 
@@ -45,8 +46,15 @@ namespace PcaSoundCloud.API
 				request.AddParameter("consumer_key", "apigee");
 				var tracks = _musicService.CallMusicService<List<Track>>(request);
                 return tracks;
-			}
+	    }
 
+        public Track GetTrack(int i)
+        {
+            var request = new RestRequest("tracks/" + i + ".json", Method.GET);
+            request.AddParameter("consumer_key", "apigee");
+            var track = _musicService.CallMusicService<Track>(request);
+            return track;
+        }
     }
 }
     

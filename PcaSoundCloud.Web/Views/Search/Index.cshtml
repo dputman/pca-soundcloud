@@ -23,9 +23,10 @@
             <img ng-src="{{track.User.AvatarUrl}}" alt="user url" />
         </div>
         <div class="col-lg-10">
-            <a href="{{track.Permalinkurl}}">
+            <a href="@Url.Action("Index", "Track")?i={{track.Id}}">
                 <h4>{{track.Title}}</h4>
             </a>
+            {{track.Permalinkurl}}
             <p>
                 {{track.Description}}
             </p>

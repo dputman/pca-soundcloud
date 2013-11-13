@@ -7,6 +7,7 @@ namespace PcaSoundCloud.Shared
     {
         IList<Track> Search(TrackCriteria criteria);
 	    IList<Track> GetFavoriteTracksByUserId(int userId);
+        Track GetTrack(int i);
     }
 
     public class TrackCriteria

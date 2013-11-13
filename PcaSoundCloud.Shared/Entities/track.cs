@@ -50,7 +50,7 @@ namespace PcaSoundCloud.Shared.Entities
         public string Downloadcount { get; set; }
         public string Favoritingscount { get; set; }
         public string Commentcount { get; set; }
-        public string Attachmentsuri { get; set; }
+        public string Attachmentsuri { get; set; }        
     }
 
     public class TrackUser

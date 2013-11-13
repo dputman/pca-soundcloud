@@ -25,5 +25,10 @@ namespace PcaSoundCloud.Core
 	    {
 	        return _trackApi.GetFavoriteTracksByUserId(userId);
 	    }
+
+        public Track GetTrack(int i)
+        {
+            return _trackApi.GetTrack(i);
+        }
     }
 }

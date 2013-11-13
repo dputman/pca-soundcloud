@@ -50,6 +50,20 @@ namespace PcaSoundCloud.API.Tests.Unit
             Assert.That(tracks, Is.SameAs(expectedTracks));
         }
 
+        [Test]
+        public void GetTrackFetchesTrackFromSoundCloud()
+        {
+            var expectedTrack = new Track();
+            _musicService.Setup(mock => mock.CallMusicService<Track>(It.IsAny<RestRequest>()))
+                .Returns(expectedTrack);
+            var track = _trackApi.GetTrack(643);
+            Assert.That(track, Is.SameAs(expectedTrack));
+        }
+
+
+
+
+
 //                [Test]
 //                public void SearchCreatesProperRequest()
 //                {

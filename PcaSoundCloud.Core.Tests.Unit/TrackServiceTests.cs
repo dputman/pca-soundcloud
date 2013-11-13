@@ -49,6 +49,15 @@ namespace PcaSoundCloud.Core.Tests.Unit
             Assert.That(tracks, Is.EqualTo(expect));
 	    }
 
+        [Test]
+        public void GetTrackReturnsTrack()
+        {
+            var expected = new Track();
+            _trackApi.Setup(mock => mock.GetTrack(1234)).Returns(expected);
+
+            var actual = _trackService.GetTrack(1234);
+            Assert.That(actual, Is.SameAs(expected));
+        }
 
     }
 }
